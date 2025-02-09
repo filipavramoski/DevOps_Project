@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reviews</title>
+</head>
+<body>
+<h1>Reviews</h1>
+<a href="/bookstore/reviews/add">Add Review</a>
+<ul>
+    <li th:each="review : ${reviews}">
+        <span th:text="${review.reviewerName}"></span> reviewed
+        <span th:text="${review.bookId}"></span> with a rating of
+        <span th:text="${review.rating}"></span>.
+        <a th:href="@{/bookstore/reviews/edit/{id}(id=${review.id})}">Edit</a>
+        <a th:href="@{/bookstore/reviews/delete/{id}(id=${review.id})}">Delete</a>
+    </li>
+</ul>
+<a href="/bookstore/authors">View Authors</a>
+<a href="/bookstore/books">View Books</a>
+</body>
+</html>
