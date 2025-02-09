@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  kiii_project:
+    image: kiii_project
+    container_name: kiii_project
+    ports:
+      - "9091:9091"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/bookstore
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:
