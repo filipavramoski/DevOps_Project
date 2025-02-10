@@ -22,7 +22,5 @@ jobs:
           password: ${{ secrets.GMAIL_APP_PASSWORD }}
           subject: "GitHub Action - Push Notification"
           body: '**New Push to Main Branch!**'
-           
-
           to: "filip.rudiche@gmail.com"
           from: "${{ secrets.GMAIL_USERNAME }}"
