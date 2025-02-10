@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kiii-project
+  namespace: devops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kiii-project
+  template:
+    metadata:
+      labels:
+        app: kiii-project
+    spec:
+      containers:
+        - name: kiii-project
+          image: filip16avr/kiii_project:latest
+          ports:
+            - containerPort: 9091
+          env:
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: SERVER_PORT
+            - name: SPRING_DATA_MONGODB_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: SPRING_DATA_MONGODB_URI
+#            - name: MONGO_USERNAME
+#              valueFrom:
+#                secretKeyRef:
+#                  name: app-secret
+#                  key: MONGO_USERNAME
+#            - name: MONGO_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: app-secret
+#                  key: MONGO_PASSWORD

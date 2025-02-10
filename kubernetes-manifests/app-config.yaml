@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: devops
+data:
+  SERVER_PORT: "9091"
+  SPRING_DATA_MONGODB_URI: "mongodb://mongodb:27017/bookstore"
