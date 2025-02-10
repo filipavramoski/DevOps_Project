@@ -1,0 +1,28 @@
+name: Send Email on Push
+
+on:
+  push:
+    branches:
+      - main  # Runs only when pushing to the main branch
+
+jobs:
+  send_mail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Send Email via Gmail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "GitHub Action - Push Notification"
+          body: '**New Push to Main Branch!**'
+           
+
+          to: "filip.rudiche@gmail.com"
+          from: "${{ secrets.GMAIL_USERNAME }}"
