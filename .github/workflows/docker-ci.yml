@@ -38,20 +38,4 @@ jobs:
           push: true
           tags: filip16avr/kiii_project:latest
 
-  # Optional: deploy after successful build
-  # deploy:
-  #   needs: build-and-push
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Deploy via SSH
-  #       uses: appleboy/ssh-action@v1.0.3
-  #       with:
-  #         host: ${{ secrets.SERVER_HOST }}
-  #         username: ${{ secrets.SERVER_USER }}
-  #         key: ${{ secrets.SERVER_SSH_KEY }}
-  #         script: |
-  #           cd /path/to/your/deployment
-  #           docker-compose down
-  #           docker pull filip16avr/kiii_project:latest
-  #           docker-compose up -d
+ 
