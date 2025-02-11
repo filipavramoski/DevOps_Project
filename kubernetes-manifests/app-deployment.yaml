@@ -29,13 +29,3 @@ spec:
                 configMapKeyRef:
                   name: app-config
                   key: SPRING_DATA_MONGODB_URI
-#            - name: MONGO_USERNAME
-#              valueFrom:
-#                secretKeyRef:
-#                  name: app-secret
-#                  key: MONGO_USERNAME
-#            - name: MONGO_PASSWORD
-#              valueFrom:
-#                secretKeyRef:
-#                  name: app-secret
-#                  key: MONGO_PASSWORD
